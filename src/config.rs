@@ -90,7 +90,7 @@ impl DisplayMode {
 
 // Default value functions
 fn default_model() -> String {
-    "gemini-2.0-flash-exp-image-generation".to_string()
+    "gemini-3-pro-image-preview".to_string()
 }
 
 fn default_base_url() -> String {
@@ -326,8 +326,9 @@ impl Config {
     /// Available models
     pub fn models() -> &'static [&'static str] {
         &[
-            "gemini-2.0-flash-exp-image-generation",
-            "imagen-3.0-generate-002",
+            "gemini-3-pro-image-preview",
+            "gemini-2.5-flash-image",
+            "imagen-4.0-generate-001",
         ]
     }
 }

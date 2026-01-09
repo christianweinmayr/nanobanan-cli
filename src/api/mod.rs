@@ -89,7 +89,7 @@ impl GeminiClient {
             parts.insert(
                 0,
                 ContentPart::InlineData {
-                    inline_data: InlineData {
+                    inlineData: InlineData {
                         mime_type: mime_type.clone(),
                         data: data.clone(),
                     },
@@ -120,8 +120,8 @@ impl GeminiClient {
             if let Some(content) = candidate.content {
                 for part in content.parts {
                     match part {
-                        ContentPart::InlineData { inline_data } => {
-                            job.add_image(image_index, inline_data.data, inline_data.mime_type);
+                        ContentPart::InlineData { inlineData } => {
+                            job.add_image(image_index, inlineData.data, inlineData.mime_type);
                             image_index += 1;
                         }
                         ContentPart::Text { text } => {

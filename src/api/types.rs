@@ -26,12 +26,14 @@ pub enum ContentPart {
         text: String,
     },
     InlineData {
-        inline_data: InlineData,
+        #[serde(alias = "inline_data", alias = "inlineData")]
+        inlineData: InlineData,
     },
 }
 
 /// Inline image data
 #[derive(Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct InlineData {
     pub mime_type: String,
     pub data: String, // base64 encoded
