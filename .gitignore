@@ -1,0 +1,10 @@
+/target
+Cargo.lock
+*.swp
+*.swo
+.DS_Store
+banana-output/
+*.png
+*.jpg
+*.jpeg
+*.webp
