@@ -36,7 +36,7 @@ EXAMPLES:
   Manage configuration:
     banana config show
     banana config set defaults.aspect_ratio 16:9
-    banana config set api.model gemini-2.0-flash-exp-image-generation
+    banana config set api.model gemini-3-pro-image-preview
 
   Launch interactive TUI:
     banana
@@ -52,8 +52,9 @@ For AI agent integration, use --format json for structured output."#,
   Database: ~/.local/share/banana-cli/jobs.db
 
   Available models:
-    - gemini-2.0-flash-exp-image-generation (default, fast)
-    - imagen-3.0-generate-002 (high quality)
+    - gemini-3-pro-image-preview (default)
+    - gemini-2.5-flash-image (fast)
+    - imagen-4.0-generate-001 (high quality)
 
   Aspect ratios: 1:1, 2:3, 3:2, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, 21:9
   Sizes: 1K (default), 2K, 4K (4K requires Gemini 3 Pro)

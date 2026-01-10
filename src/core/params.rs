@@ -44,7 +44,7 @@ fn default_size() -> String {
 }
 
 fn default_model() -> String {
-    "gemini-2.0-flash-exp-image-generation".to_string()
+    "gemini-3-pro-image-preview".to_string()
 }
 
 fn default_num_images() -> u8 {
