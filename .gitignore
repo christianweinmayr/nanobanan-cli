@@ -8,3 +8,4 @@ banana-output/
 *.jpg
 *.jpeg
 *.webp
+.claude/
