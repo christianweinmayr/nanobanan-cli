@@ -13,6 +13,7 @@ pub struct GenerateRequest {
 /// Content block (user or model message)
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Content {
+    #[serde(default)]
     pub parts: Vec<ContentPart>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub role: Option<String>,
@@ -72,9 +73,11 @@ pub struct GenerateResponse {
 
 /// A candidate response
 #[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Candidate {
     pub content: Option<Content>,
     pub finish_reason: Option<String>,
+    pub finish_message: Option<String>,
     pub safety_ratings: Option<Vec<SafetyRating>>,
 }
 

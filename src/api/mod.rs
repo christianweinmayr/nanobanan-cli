@@ -117,6 +117,21 @@ impl GeminiClient {
         let mut image_index = 0u8;
 
         for candidate in response.candidates.unwrap_or_default() {
+            // Check for refusal/recitation before processing content
+            if let Some(reason) = &candidate.finish_reason {
+                if reason != "STOP" && reason != "MAX_TOKENS" {
+                    let message = candidate
+                        .finish_message
+                        .as_deref()
+                        .unwrap_or("Image generation was refused by the API");
+                    tracing::warn!("Generation refused: {} - {}", reason, message);
+                    job.set_failed(message);
+                    return Err(
+                        BananaError::GenerationFailed(message.to_string()).into()
+                    );
+                }
+            }
+
             if let Some(content) = candidate.content {
                 for part in content.parts {
                     match part {
